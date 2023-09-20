@@ -1,0 +1,10 @@
+ART
+
+-- Assets
+   - Resources
+     - Assets
+       - Prefabs 
+        - World
+          Foliage (Stars)
+
+https://www.youtube.com/watch?v=wPmAHX2RnIA

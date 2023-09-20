@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8735636936118079308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8735636936118079310}
+  - component: {fileID: 8735636936118079311}
+  m_Layer: 0
+  m_Name: StarManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8735636936118079310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735636936118079308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8735636936118079311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735636936118079308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c95fb44cf18ab843890c2f938c5d67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarTemplates:
+  - {fileID: 8496183213989481643, guid: 338d8919614704040990ecdfdbd6ccf3, type: 3}
+  - {fileID: 560667172680841843, guid: 644934df2afcdee4592f3fe53e42b0ff, type: 3}
+  - {fileID: 937467289060670916, guid: a8484107423ef054abffdcfef48fc8fd, type: 3}
+  - {fileID: 937467289060670916, guid: 832441210e76ba64c95dcec7d09388a9, type: 3}
+  - {fileID: 937467289060670916, guid: 04ddfee6eaa26474a89f98d03d559613, type: 3}
+  - {fileID: 937467289060670916, guid: 38ca3959ee6bf2d43ab9f32b88911e7d, type: 3}
+  SunTemplate: {fileID: 0}
+  MoonTemplate: {fileID: 0}
+  MinStarSpawnTime: 1
+  MaxStarSpawnTime: 5

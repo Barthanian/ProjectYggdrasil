@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7598762563554167323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7598762563554167325}
+  - component: {fileID: 7598762563554167324}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7598762563554167325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598762563554167323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7598762563554167324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598762563554167323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b75ce33ea3b9e41854e42cdcb74ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SectionList: []
+  TileTemplates:
+  - {fileID: 8516783747914145378, guid: 7f86ee967a7f5d54a85c7eba31e9d771, type: 3}
+  SectionTemplate: {fileID: 2922578889927120915, guid: efffb6083a9f0184fb54c0cb6b1a8545,
+    type: 3}
+  PickupTemplates:
+  - Type: 0
+    PickupTemplate: {fileID: 7927319538115461492, guid: d67f17b6f4d9b5c46b44291191e0c4ce,
+      type: 3}
+  - Type: 1
+    PickupTemplate: {fileID: 7927319538115461492, guid: db6907635f90a6b4dacc88b670ed493a,
+      type: 3}
