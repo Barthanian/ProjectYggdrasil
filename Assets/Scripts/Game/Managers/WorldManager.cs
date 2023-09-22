@@ -104,7 +104,7 @@ public class WorldManager : ManagerBase {
         Destroy(originSection.gameObject);
 
         Section newSection = GameObject.Instantiate(SectionTemplate);
-        PlatformHeights[0] = Random.Range(-1, 2);
+        PlatformHeights[0] = Random.Range(-2, 1);
         int startX = 0;
 
         if (rightwards) {

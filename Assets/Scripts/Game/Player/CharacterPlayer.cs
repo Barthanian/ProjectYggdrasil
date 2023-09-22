@@ -12,33 +12,31 @@ public enum MoveAxis {
 
 public class CharacterPlayer : CharacterBase {
     public static CharacterPlayer instance;
-
-    private void Awake() {
-        instance = this;
-    }
-
     public Rigidbody2D CharacterRigidBody;
     public TrailRenderer CharacterTrail;
-
     public float JumpForce;
-
     public Camera PlayerCamera;
 
-
-    List<Collider2D> TouchedTiles = new List<Collider2D>();
-
     bool bCanDoubleJump = false;
-
     float CurrentSpeed = 1.6f;
 
     Vector3 LastPosition;
+    List<Collider2D> TouchedTiles = new List<Collider2D>();
+    Animator animator;
+
 
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource Landsfx;
     bool Soprikos = false;
     // Start is called before the first frame update
-    void Start() {
 
+    void Start() {
+        animator = GetComponent<Animator>();
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     // Update is called once per frame
@@ -102,12 +100,18 @@ public class CharacterPlayer : CharacterBase {
             case MoveAxis.MOVE_LEFT:
                 //CharacterRigidBody.MovePosition(gameObject.transform.position - new Vector3(1f, 0, 0) * Time.deltaTime);
                 CharacterRigidBody.velocity = new Vector2(-speed, CharacterRigidBody.velocity.y);
+                animator.SetBool("isRunning", true);
                 break;
             case MoveAxis.MOVE_RIGHT:
                 CharacterRigidBody.velocity = new Vector2(speed, CharacterRigidBody.velocity.y);
+                animator.SetBool("isRunning", true);
 
                 //CharacterRigidBody.MovePosition(gameObject.transform.position + new Vector3(1f, 0, 0) * Time.deltaTime);
                 break;
+            default:
+                animator.SetBool("isRunning", false);
+                break;
+
         }
     }
 

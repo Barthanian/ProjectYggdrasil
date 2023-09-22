@@ -38,9 +38,10 @@ public class HUD : MonoBehaviour {
 
     public Text Duration;
     public Text TextMotivation;
+    public Text highScoreText;
     [SerializeField]
     Text Lives;
-
+    
 
     public RawImage ImageSun;
     public RawImage ImageMoon;
@@ -70,7 +71,7 @@ public class HUD : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Duration.text = PlayerManager.instance.GetPlayerData().Duration.ToString("F1");
+        Duration.text = PlayerManager.instance.GetPlayerData().Duration.ToString("F2");
         
 
         if (bIsSunFadingIn) {

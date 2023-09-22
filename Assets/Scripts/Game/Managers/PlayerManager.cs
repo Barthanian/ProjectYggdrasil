@@ -24,6 +24,9 @@ public class PlayerManager : ManagerBase {
     public static PlayerManager instance;
     public static int STARTING_LIVES = 3;
 
+    public float highScore = 0;
+    private HUD HUD;
+
     private void Awake() {
         instance = this;
     }
@@ -32,14 +35,25 @@ public class PlayerManager : ManagerBase {
 
     // Start is called before the first frame update
     [SerializeField] AudioSource ObjectPickupfx;
+    
     void Start() {
-
+        HUD = GameObject.Find("HUD").GetComponent<HUD>();
     }
 
     // Update is called once per frame
     void Update() {
+        
         CurrentPlayerData.Duration += Time.deltaTime;
+
+        if (CurrentPlayerData.Duration > highScore) 
+        {
+           highScore = CurrentPlayerData.Duration;
+        }
+
+        HUD.highScoreText.text = "" + highScore.ToString("F2");
         TickBuffs();
+
+
     }
 
     int TryCounter = 0;
@@ -54,7 +68,7 @@ public class PlayerManager : ManagerBase {
             }
         }
     }
-
+  
     public PlayerData GetPlayerData() {
         if(CurrentPlayerData == null) {
             CurrentPlayerData = new PlayerData(0, new List<Buff>(), new List<Buff>(), new List<EElementType>());
@@ -68,7 +82,11 @@ public class PlayerManager : ManagerBase {
 
 
     public void AddDuration(float duration) {
+
         CurrentPlayerData.Duration += duration;
+
+        
+       
     }
 
     public void AddBuff(Buff buff) {
@@ -120,18 +138,18 @@ public class PlayerManager : ManagerBase {
                     case EElementType.ET_STAR:
                         CurrentPlayerData.ActivatedElements.Add(EElementType.ET_STAR);
                         StarManager.instance.ActivateStars();
-                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "reach for the stars");
+                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "Fruitin' Time");
                         break;
                     case EElementType.ET_SUN:
                         CurrentPlayerData.ActivatedElements.Add(EElementType.ET_SUN);
                         StarManager.instance.ActivateSun();
                         WorldManager.instance.Expand(2);
-                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "light the way");
+                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "Have some Pizza");
                         break;
                     case EElementType.ET_MOON:
                         CurrentPlayerData.ActivatedElements.Add(EElementType.ET_MOON);
                         StarManager.instance.ActivateMoon();
-                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "ebb and flow");
+                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "Wanna drink?");
                         break;
                     case EElementType.ET_WIND:
                         CurrentPlayerData.ActivatedElements.Add(EElementType.ET_WIND);
@@ -144,13 +162,13 @@ public class PlayerManager : ManagerBase {
 
                         CharacterPlayer.instance.SetTrailEnabled(true);
 
-                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "think");
+                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "Lookin' Good!");
 
                         break;
                     case EElementType.ET_FIRE:
                         CurrentPlayerData.ActivatedElements.Add(EElementType.ET_FIRE);
 
-                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "feel.");
+                        HUD.instance.FadeInMotivation(EMotivationType.MOT_GENERIC, "Hello there.");
 
                         Buff betterBuff = new Buff();
                         betterBuff.Duration = -1.0f;
