@@ -31,6 +31,7 @@ public class PlayerManager : ManagerBase {
     PlayerData CurrentPlayerData = new PlayerData(0, new List<Buff>(), new List<Buff>(), new List<EElementType>());
 
     // Start is called before the first frame update
+    [SerializeField] AudioSource ObjectPickupfx;
     void Start() {
 
     }
@@ -109,6 +110,7 @@ public class PlayerManager : ManagerBase {
     }
 
     public void HandlePickup(Pickup pickup) {
+        ObjectPickupfx.Play();
         switch (pickup.PickupType) {
             case EPickupType.PT_SCORE:
                 break;

@@ -32,6 +32,10 @@ public class CharacterPlayer : CharacterBase {
     float CurrentSpeed = 1.6f;
 
     Vector3 LastPosition;
+
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource Landsfx;
+    bool Soprikos = false;
     // Start is called before the first frame update
     void Start() {
 
@@ -61,10 +65,14 @@ public class CharacterPlayer : CharacterBase {
     public void Jump() {
         if(!CanJump() && !CanDoubleJump()) {
             return;
+            
         }
+        jumpSoundEffect.Play();
         bCanDoubleJump = !bCanDoubleJump;
         //CharacterRigidBody.AddForce(new Vector3(0, 100, 0), ForceMode2D.Impulse);
         CharacterRigidBody.velocity = new Vector2(CharacterRigidBody.velocity.x, JumpForce);
+        Soprikos = false;
+
     }
 
     public void SetLocation(Vector3 location) {
@@ -140,11 +148,18 @@ public class CharacterPlayer : CharacterBase {
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        
-        if (collision.collider == collision.gameObject.GetComponent<Tile>().GroundCollider) {
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.collider == collision.gameObject.GetComponent<Tile>().GroundCollider)
+        {
             TouchedTiles.Add(collision.collider);
             bCanDoubleJump = false;
+            if (Soprikos == false)
+            {
+                Soprikos = true;
+                Landsfx.Play();
+            }
         }
     }
     void OnCollisionExit2D(Collision2D collision) {
